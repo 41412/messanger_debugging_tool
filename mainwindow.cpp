@@ -122,7 +122,7 @@ static inline QByteArray IntToArray(int v) {
 void MainWindow::on_pushButton_SendData_clicked()
 {
     QByteArray ba;
-    QString str = ui->textEdit_RawData->toPlainText();
+    QString str = ui->textEdit_RawData->toPlainText().toLower();
     str.replace(" ", "");
     str.replace("\r", "");
     str.replace("\n", "");
@@ -197,7 +197,7 @@ void MainWindow::updateRawData()
 
     t = "";
     for(auto e: d) {
-        t += QString::asprintf("%02X ", e);
+        t += QString::asprintf("%02X ", static_cast<unsigned char>(e));
     }
 
     ui->textEdit_RawData->setText(t);
