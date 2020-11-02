@@ -174,30 +174,42 @@ void MainWindow::updateRawData()
 {
     QByteArray d;
     QString t;
-
-    // size : int
-    // size will be appended at the end of routine
-
-    // space
-    d += ' ';
-
-    // protocol : int
-    t = ui->lineEdit_Pmid->text();
-    //d += IntToArray(t.toInt());
-    d += t.toUtf8();
+    QString id = ui->lineEdit_Pmid->text();
+    QString msg = ui->textEdit_Items->toPlainText();
 
     // space
-    d += ' ';
+    if (!id.isEmpty()) {
+        d += ' ';
 
-    // items : separated by space
-    d += ui->textEdit_Items->toPlainText().toUtf8();
+        // protocol : int
+        t = id;
+        d += t.toUtf8();
+    }
 
-    // set size
-    d.prepend(IntToArray(d.count()));
+    if (!msg.isEmpty()) {
+        // items : separated by space
+        QStringList items = msg.split(' ');
+        for (auto it: items) {
+            d += ' ';
 
-    t = "";
-    for(auto e: d) {
-        t += QString::asprintf("%02X ", static_cast<unsigned char>(e));
+            if ((it.length() > 2) && (it[0] == '`' && it[1] == '#')) {
+                QString rem = it.right(it.length() - 2);
+                d += IntToArray(rem.toInt());
+            }
+            else {
+                d += it.toUtf8();
+            }
+        }
+    }
+
+    if (d.size() != 0) {
+        // set size
+        d.prepend(IntToArray(d.count()));
+
+        t = "";
+        for(auto e: d) {
+            t += QString::asprintf("%02X ", static_cast<unsigned char>(e));
+        }
     }
 
     ui->textEdit_RawData->setText(t);
