@@ -224,3 +224,25 @@ void MainWindow::on_textEdit_Items_textChanged()
 {
     updateRawData();
 }
+
+void MainWindow::on_pushButton_sigLoginSuccess_clicked()
+{
+    ui->lineEdit_Pmid->setText("LOGIN_SUCCESS");
+}
+
+void MainWindow::on_pushButton_sig_UserdataSendStart_clicked()
+{
+    ui->lineEdit_Pmid->setText("USERDATA_SEND_START");
+}
+
+void MainWindow::on_pushButton_sig_SendFriendlist_clicked()
+{
+    ui->lineEdit_Pmid->setText("SEND_FRIENDLIST");
+}
+
+void MainWindow::on_pushButton_sig_UserdataSendEnd_clicked()
+{
+    ui->lineEdit_Pmid->setText("USERDATA_SEND_END");
+}
+
+

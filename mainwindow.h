@@ -32,6 +32,11 @@ private slots:
     void on_lineEdit_Pmid_textChanged(const QString &arg1);
     void on_textEdit_Items_textChanged();
 
+    void on_pushButton_sigLoginSuccess_clicked();
+    void on_pushButton_sig_UserdataSendStart_clicked();
+    void on_pushButton_sig_SendFriendlist_clicked();
+    void on_pushButton_sig_UserdataSendEnd_clicked();
+
 private:
     Ui::MainWindow *ui;
 
