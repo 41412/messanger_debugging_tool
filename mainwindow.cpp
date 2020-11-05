@@ -179,8 +179,6 @@ void MainWindow::updateRawData()
 
     // space
     if (!id.isEmpty()) {
-        d += ' ';
-
         // protocol : int
         t = id;
         d += t.toUtf8();
@@ -205,6 +203,9 @@ void MainWindow::updateRawData()
     if (d.size() != 0) {
         // set size
         d.prepend(IntToArray(d.count()));
+        d.prepend("MR2020");
+        d.prepend(0xEE);
+        d.prepend(0xFF);
 
         t = "";
         for(auto e: d) {
