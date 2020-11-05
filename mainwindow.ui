@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>963</width>
-    <height>517</height>
+    <width>962</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,7 +102,7 @@
    <widget class="QPushButton" name="pushButton_SendData">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>200</x>
       <y>360</y>
       <width>131</width>
       <height>41</height>
@@ -117,7 +117,7 @@
      <rect>
       <x>550</x>
       <y>50</y>
-      <width>381</width>
+      <width>331</width>
       <height>141</height>
      </rect>
     </property>
@@ -130,7 +130,7 @@
      <rect>
       <x>550</x>
       <y>210</y>
-      <width>381</width>
+      <width>331</width>
       <height>141</height>
      </rect>
     </property>
@@ -141,7 +141,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>660</x>
       <y>20</y>
       <width>101</width>
       <height>16</height>
@@ -265,13 +265,36 @@
      <string>Send Friendlist</string>
     </property>
    </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>360</y>
+      <width>331</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SendFriendListHuge">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>490</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Send Friendlist (huge)</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>963</width>
+     <width>962</width>
      <height>21</height>
     </rect>
    </property>

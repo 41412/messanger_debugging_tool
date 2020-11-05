@@ -3,6 +3,12 @@
 #include <QDebug>
 #include <QCryptographicHash>
 
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QFile>
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -11,10 +17,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->textEdit_RxHex->setFontFamily("Courier New");
     ui->textEdit_RxText->setFontFamily("Courier New");
+
+    ui->tableWidget->setColumnCount(3);
     //ui->textEdit_RxHex->setText("00 11 22 33 44 55 66 77\naa bb cc dd ee ff gg hh");
 
     connect(&_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
     connect(&_client1, SIGNAL(onRead(const QByteArray&)), this, SLOT(onClient1Recieved(const QByteArray&)));
+
+    loadPresets();
 }
 
 MainWindow::~MainWindow()
@@ -247,3 +257,58 @@ void MainWindow::on_pushButton_sig_UserdataSendEnd_clicked()
 }
 
 
+bool MainWindow::loadPresets()
+{
+    QFile loadFile("test.json");
+    if (!loadFile.open(QIODevice::ReadOnly)) {
+        qWarning("Couldn't open save file.");
+        return false;
+    }
+
+    QByteArray saveData = loadFile.readAll();
+    QJsonDocument loadDoc = QJsonDocument::fromJson(saveData);
+
+    QJsonObject json = loadDoc.object();
+    QJsonArray arr = json["scenes"].toArray();
+    bool con = json.contains("scenes");
+    QJsonArray::iterator it = arr.begin();
+    //QList<TestItems> list;
+
+    for (; it != arr.end(); it++) {
+        TestItems item;
+        QJsonObject obj = it->toObject();
+        item.title = obj["title"].toString();
+        item.dir = obj["dir"].toString();
+        item.id = obj["id"].toString();
+        item.msg = obj["msg"].toString();
+        _presets.push_back(item);
+        int pos = ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(pos);
+        QTableWidgetItem *twi1 =new QTableWidgetItem(item.title);
+        QTableWidgetItem *twi2 =new QTableWidgetItem(item.id);
+        QTableWidgetItem *twi3 =new QTableWidgetItem(item.msg);
+        ui->tableWidget->setItem(pos, 0, twi1);
+        ui->tableWidget->setItem(pos, 1, twi2);
+        ui->tableWidget->setItem(pos, 2, twi3);
+    }
+    return true;
+}
+
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+    qDebug() << row << ", " << column;
+    ui->lineEdit_Pmid->setText(ui->tableWidget->item(row, 1)->text());
+    ui->textEdit_Items->setText(ui->tableWidget->item(row, 2)->text());
+}
+
+void MainWindow::on_pushButton_SendFriendListHuge_clicked()
+{
+    QString str;
+    for (int i = 0; i < 0xFFFF; i++) {
+        str += QString::asprintf("TestUser%d ", i);
+    }
+    ui->lineEdit_Pmid->setText("SEND_FRIENDLIST");
+    str.prepend("65536 ");
+    ui->textEdit_Items->setText(str);
+}

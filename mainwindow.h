@@ -37,16 +37,29 @@ private slots:
     void on_pushButton_sig_SendFriendlist_clicked();
     void on_pushButton_sig_UserdataSendEnd_clicked();
 
+    void on_tableWidget_cellClicked(int row, int column);
+
+    void on_pushButton_SendFriendListHuge_clicked();
+
 private:
     Ui::MainWindow *ui;
 
 private:
+    struct TestItems{
+        QString title;
+        QString dir;
+        QString id;
+        QString msg;
+    };
+
     QTcpServer _server;
     QList<QTcpSocket*> _sockets;
     HmClient _client1;
+    QVector<TestItems> _presets;
 
     void openSession(bool asServer);
     void closeSessions();
     void updateRawData();
+    bool loadPresets();
 };
 #endif // MAINWINDOW_H
