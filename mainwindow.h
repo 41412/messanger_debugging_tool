@@ -41,6 +41,10 @@ private slots:
 
     void on_pushButton_SendFriendListHuge_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
@@ -60,6 +64,6 @@ private:
     void openSession(bool asServer);
     void closeSessions();
     void updateRawData();
-    bool loadPresets();
+    bool loadPresets(const QString& filepath = "");
 };
 #endif // MAINWINDOW_H

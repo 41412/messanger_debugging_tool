@@ -1,0 +1,53 @@
+{
+	"scenes": [
+		{
+			"title": "Login succeed",
+			"dir": "to client",
+			"id": "LOGIN_SUCCESS",
+			"msg": "",
+			"desc": ""
+		},
+		{
+			"title": "Login failed",
+			"dir": "to client",
+			"id": "LOGIN_FAIL",
+			"msg": "",
+			"desc": ""
+		},
+		{
+			"title": "Submit successed",
+			"dir": "to client",
+			"id": "SUBMIT_SUCCESS",
+			"msg": "",
+			"desc": ""
+		},		
+		{
+			"title": "Submit failed",
+			"dir": "to client",
+			"id": "SUBMIT_FAIL",
+			"msg": "",
+			"desc": ""
+		},			
+		{
+			"title": "User data start",
+			"dir": "to client",
+			"id": "USERDATA_SEND_START",
+			"msg": "",
+			"desc": ""
+		},
+		{
+			"title": "Send friend list",
+			"dir": "to client",
+			"id": "SEND_FRIENDLIST",
+			"msg": "3 mike salmon wooyoung",
+			"desc": ""
+		},
+		{
+			"title": "Send friend list",
+			"dir": "to client",
+			"id": "USERDATA_SEND_END",
+			"msg": "",
+			"desc": ""
+		}		
+	]	
+}

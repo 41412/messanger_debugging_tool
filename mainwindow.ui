@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>962</width>
-    <height>598</height>
+    <width>1012</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QLineEdit" name="lineEdit_Pmid">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>50</y>
       <width>321</width>
       <height>21</height>
@@ -27,7 +27,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>20</y>
       <width>101</width>
       <height>16</height>
@@ -40,7 +40,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>80</y>
       <width>101</width>
       <height>16</height>
@@ -53,7 +53,7 @@
    <widget class="QTextEdit" name="textEdit_Items">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>110</y>
       <width>321</width>
       <height>81</height>
@@ -66,7 +66,7 @@
       <x>10</x>
       <y>110</y>
       <width>141</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -77,9 +77,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>160</y>
       <width>141</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -90,9 +90,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>260</y>
+      <y>220</y>
       <width>141</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -102,10 +102,10 @@
    <widget class="QPushButton" name="pushButton_SendData">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>360</y>
-      <width>131</width>
-      <height>41</height>
+      <x>10</x>
+      <y>280</y>
+      <width>141</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
@@ -115,9 +115,9 @@
    <widget class="QTextEdit" name="textEdit_RxHex">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>50</y>
-      <width>331</width>
+      <x>170</x>
+      <y>370</y>
+      <width>321</width>
       <height>141</height>
      </rect>
     </property>
@@ -128,9 +128,9 @@
    <widget class="QTextEdit" name="textEdit_RxText">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>210</y>
-      <width>331</width>
+      <x>510</x>
+      <y>370</y>
+      <width>321</width>
       <height>141</height>
      </rect>
     </property>
@@ -141,8 +141,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>20</y>
+      <x>470</x>
+      <y>350</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -206,18 +206,18 @@
    <widget class="QTextEdit" name="textEdit_RawData">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>210</y>
       <width>321</width>
-      <height>141</height>
+      <height>131</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_sigLoginSuccess">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>360</y>
+      <x>850</x>
+      <y>50</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -229,8 +229,8 @@
    <widget class="QPushButton" name="pushButton_sig_UserdataSendStart">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>390</y>
+      <x>850</x>
+      <y>80</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -242,8 +242,8 @@
    <widget class="QPushButton" name="pushButton_sig_UserdataSendEnd">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>450</y>
+      <x>850</x>
+      <y>140</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -255,8 +255,8 @@
    <widget class="QPushButton" name="pushButton_sig_SendFriendlist">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>420</y>
+      <x>850</x>
+      <y>110</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -268,18 +268,18 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>360</y>
-      <width>331</width>
-      <height>192</height>
+      <x>510</x>
+      <y>81</y>
+      <width>321</width>
+      <height>261</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_SendFriendListHuge">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>490</y>
+      <x>850</x>
+      <y>180</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -288,13 +288,49 @@
      <string>Send Friendlist (huge)</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>50</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filter</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>50</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>962</width>
+     <width>1012</width>
      <height>21</height>
     </rect>
    </property>

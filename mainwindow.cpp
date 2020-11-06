@@ -8,6 +8,8 @@
 #include <QJsonObject>
 #include <QFile>
 
+#include <QFileDialog>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
     connect(&_client1, SIGNAL(onRead(const QByteArray&)), this, SLOT(onClient1Recieved(const QByteArray&)));
 
-    loadPresets();
+    loadPresets("test.json");
 }
 
 MainWindow::~MainWindow()
@@ -216,6 +218,7 @@ void MainWindow::updateRawData()
         d.prepend("MR2020");
         d.prepend(0xEE);
         d.prepend(0xFF);
+        //d.prepend(QString::asprintf("%d ", d.count()).toUtf8());
 
         t = "";
         for(auto e: d) {
@@ -257,9 +260,9 @@ void MainWindow::on_pushButton_sig_UserdataSendEnd_clicked()
 }
 
 
-bool MainWindow::loadPresets()
+bool MainWindow::loadPresets(const QString& filepath)
 {
-    QFile loadFile("test.json");
+    QFile loadFile(filepath);
     if (!loadFile.open(QIODevice::ReadOnly)) {
         qWarning("Couldn't open save file.");
         return false;
@@ -270,10 +273,17 @@ bool MainWindow::loadPresets()
 
     QJsonObject json = loadDoc.object();
     QJsonArray arr = json["scenes"].toArray();
-    bool con = json.contains("scenes");
     QJsonArray::iterator it = arr.begin();
     //QList<TestItems> list;
 
+    if (arr.count() == 0) {
+        QMessageBox msgBox;
+        msgBox.setText("Invalid sceniro file");
+        msgBox.exec();
+        return false;
+    }
+
+    ui->tableWidget->setRowCount(0);
     for (; it != arr.end(); it++) {
         TestItems item;
         QJsonObject obj = it->toObject();
@@ -281,7 +291,9 @@ bool MainWindow::loadPresets()
         item.dir = obj["dir"].toString();
         item.id = obj["id"].toString();
         item.msg = obj["msg"].toString();
-        _presets.push_back(item);
+
+        //_presets.push_back(item);
+
         int pos = ui->tableWidget->rowCount();
         ui->tableWidget->insertRow(pos);
         QTableWidgetItem *twi1 =new QTableWidgetItem(item.title);
@@ -305,10 +317,36 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 void MainWindow::on_pushButton_SendFriendListHuge_clicked()
 {
     QString str;
-    for (int i = 0; i < 0xFFFF; i++) {
-        str += QString::asprintf("TestUser%d ", i);
+    int count = 0xffff;
+    for (int i = 0; i < count; i++) {
+        str += QString::asprintf(" TestUser%d", i);
     }
     ui->lineEdit_Pmid->setText("SEND_FRIENDLIST");
-    str.prepend("65536 ");
+    str.prepend(QString::asprintf("%d", count));
     ui->textEdit_Items->setText(str);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString filepath = QFileDialog::getOpenFileName(this,tr("Open Scenario file"), "", tr("Image Files (*.json)"));
+    //qDebug() << filepath;
+    loadPresets(filepath);
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    QTableWidget* tw = ui->tableWidget;
+    for (int r = 0; r < ui->tableWidget->rowCount(); r++) {
+        if (tw->item(r, 0)->text().contains(arg1,Qt::CaseSensitivity::CaseInsensitive) ||
+            tw->item(r, 1)->text().contains(arg1,Qt::CaseSensitivity::CaseInsensitive) ||
+            tw->item(r, 2)->text().contains(arg1,Qt::CaseSensitivity::CaseInsensitive) ||
+            arg1.isEmpty())
+        {
+            ui->tableWidget->setRowHidden(r, false);
+        }
+        else
+        {
+            ui->tableWidget->setRowHidden(r, true);
+        }
+    }
 }
