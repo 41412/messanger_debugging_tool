@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit_RxText->setFontFamily("Courier New");
 
     ui->tableWidget->setColumnCount(3);
+    QStringList sl = { "Title", "ID", "Msg" };
+    ui->tableWidget->setHorizontalHeaderLabels(sl);
     //ui->textEdit_RxHex->setText("00 11 22 33 44 55 66 77\naa bb cc dd ee ff gg hh");
 
     connect(&_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
@@ -309,7 +311,7 @@ bool MainWindow::loadPresets(const QString& filepath)
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
-    qDebug() << row << ", " << column;
+    // qDebug() << row << ", " << column;
     ui->lineEdit_Pmid->setText(ui->tableWidget->item(row, 1)->text());
     ui->textEdit_Items->setText(ui->tableWidget->item(row, 2)->text());
 }
