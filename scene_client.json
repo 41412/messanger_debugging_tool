@@ -34,6 +34,34 @@
 			"id": "FRIENDLIST_RECEIVED",
 			"msg": "",
 			"desc": ""
+		},
+		{
+			"title": "Request to create a chat room",
+			"dir": "to server",
+			"id": "REQUEST_CREATE_CHATROOM",
+			"msg": "3 mike boguen wooyoung",
+			"desc": ""
+		},
+		{
+			"title": "Request to invite user(s) into a room",
+			"dir": "to server",
+			"id": "REQUEST_INVITE_USER",
+			"msg": "BOGUEN.2020.11.09.10.33.55 3 mike boguen wooyoung",
+			"desc": ""
+		},
+		{
+			"title": "Request to leave from a room",
+			"dir": "to server",
+			"id": "REQUEST_LEAVE_CHATROOM",
+			"msg": "BOGUEN.2020.11.09.10.33.55 mike",
+			"desc": ""
+		},
+		{
+			"title": "Request to send chat",
+			"dir": "to server",
+			"id": "REQUEST_SEND_CHAT",
+			"msg": "BOGUEN.2020.11.09.10.33.55 mike Hello! Nice to meet you",
+			"desc": ""
 		}
 	]	
 }

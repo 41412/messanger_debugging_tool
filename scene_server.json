@@ -48,6 +48,34 @@
 			"id": "USERDATA_SEND_END",
 			"msg": "",
 			"desc": ""
-		}		
-	]	
+		},
+		{
+			"title": "Response to create chat room",
+			"dir": "to client",
+			"id": "RESPONSE_CREATE_CHATROOM",
+			"msg": "BOGUEN.2020.11.09.10.33.55",
+			"desc": ""
+		},
+		{
+			"title": "Response to invite user to a room",
+			"dir": "to client",
+			"id": "RESPONSE_INVITE_USER",
+			"msg": "BOGUEN.2020.11.09.10.33.55",
+			"desc": ""
+		},
+		{
+			"title": "Response to leave from a room",
+			"dir": "to client",
+			"id": "RESPONSE_LEAVE_CHATROOM",
+			"msg": "BOGUEN.2020.11.09.10.33.55 mike",
+			"desc": ""
+		},
+		{
+			"title": "Response to send a chat",
+			"dir": "to client",
+			"id": "UPDATE_CHAT",
+			"msg": "BOGUEN.2020.11.09.10.33.55 mike 2020.11.09.12.00.00 Hello!! Nice to meet you",
+			"desc": ""
+		}
+	]
 }
