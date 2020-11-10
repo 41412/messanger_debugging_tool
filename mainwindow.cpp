@@ -10,6 +10,7 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,7 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
     connect(&_client1, SIGNAL(onRead(const QByteArray&)), this, SLOT(onClient1Recieved(const QByteArray&)));
 
-    loadPresets("test.json");
+    loadRecentFilepath();
+    if (!_recentFile.isEmpty()) {
+        loadPresets(_recentFile);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -276,6 +280,7 @@ bool MainWindow::loadPresets(const QString& filepath)
         return false;
     }
 
+    _recentFile = filepath;
     ui->tableWidget->setRowCount(0);
     for (; it != arr.end(); it++) {
         TestItems item;
@@ -296,6 +301,10 @@ bool MainWindow::loadPresets(const QString& filepath)
         ui->tableWidget->setItem(pos, 1, twi2);
         ui->tableWidget->setItem(pos, 2, twi3);
     }
+
+    saveRecentFilepath();
+    ui->lineEdit_msgStatus->setText("loaded " + _recentFile);
+
     return true;
 }
 
@@ -342,5 +351,37 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
         {
             ui->tableWidget->setRowHidden(r, true);
         }
+    }
+}
+
+void MainWindow::on_pushButton_Reload_clicked()
+{
+    if (_recentFile.isEmpty()) {
+        QMessageBox msgBox;
+        msgBox.setText("No recent file");
+        msgBox.exec();
+    }
+    else {
+        loadPresets(_recentFile);
+    }
+}
+
+static const char* pcszRecentlogPath = "recent.log";
+
+void MainWindow::saveRecentFilepath()
+{
+    QFile cf(pcszRecentlogPath);
+    if (cf.open(QFile::ReadWrite)) {
+        cf.write(_recentFile.toUtf8());
+        cf.close();
+    }
+}
+
+void MainWindow::loadRecentFilepath()
+{
+    QFile cf(pcszRecentlogPath);
+    if (cf.open(QFile::ReadOnly)) {
+        _recentFile = QString::fromUtf8(cf.readAll());
+        cf.close();
     }
 }

@@ -45,6 +45,8 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void on_pushButton_Reload_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -60,10 +62,14 @@ private:
     QList<QTcpSocket*> _sockets;
     HmClient _client1;
     QVector<TestItems> _presets;
+    QString _recentFile;
 
     void openSession(bool asServer);
     void closeSessions();
     void updateRawData();
     bool loadPresets(const QString& filepath = "");
+    void saveRecentFilepath();
+    void loadRecentFilepath();
+    void clearSceneMsg();
 };
 #endif // MAINWINDOW_H

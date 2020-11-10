@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1012</width>
-    <height>554</height>
+    <width>858</width>
+    <height>556</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -216,8 +216,8 @@
    <widget class="QPushButton" name="pushButton_sigLoginSuccess">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>50</y>
+      <x>10</x>
+      <y>370</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -229,8 +229,8 @@
    <widget class="QPushButton" name="pushButton_sig_UserdataSendStart">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>80</y>
+      <x>10</x>
+      <y>400</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -242,8 +242,8 @@
    <widget class="QPushButton" name="pushButton_sig_UserdataSendEnd">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>140</y>
+      <x>10</x>
+      <y>460</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -255,8 +255,8 @@
    <widget class="QPushButton" name="pushButton_sig_SendFriendlist">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>110</y>
+      <x>10</x>
+      <y>430</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -278,8 +278,8 @@
    <widget class="QPushButton" name="pushButton_SendFriendListHuge">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>180</y>
+      <x>10</x>
+      <y>490</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -293,7 +293,7 @@
      <rect>
       <x>550</x>
       <y>50</y>
-      <width>191</width>
+      <width>141</width>
       <height>20</height>
      </rect>
     </property>
@@ -314,14 +314,40 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>700</x>
       <y>50</y>
-      <width>75</width>
+      <width>61</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Reload">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>50</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reload</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_msgStatus">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>10</y>
+      <width>321</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -330,7 +356,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1012</width>
+     <width>858</width>
      <height>21</height>
     </rect>
    </property>
