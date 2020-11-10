@@ -39,7 +39,7 @@
 			"title": "Request to create a chat room",
 			"dir": "to server",
 			"id": "REQUEST_CREATE_CHATROOM",
-			"msg": "3<GS>mike<GS>boguen<GS>wooyoung",
+			"msg": "boguen<GS>3<GS>mike<GS>boguen<GS>wooyoung",
 			"desc": ""
 		},
 		{
