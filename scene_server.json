@@ -39,7 +39,7 @@
 			"title": "Send friend list",
 			"dir": "to client",
 			"id": "SEND_FRIENDLIST",
-			"msg": "3 mike salmon wooyoung",
+			"msg": "3<GS>mike<GS>salmon<GS>wooyoung",
 			"desc": ""
 		},
 		{
@@ -47,6 +47,13 @@
 			"dir": "to client",
 			"id": "USERDATA_SEND_END",
 			"msg": "",
+			"desc": ""
+		},
+		{
+			"title": "Send room list",
+			"dir": "to client",
+			"id": "SEND_CHATROOMLIST",
+			"msg": "1<GS>BOGUEN.2020.11.09.10.33.55<RS>3<RS>mike<RS>boguen<RS>wooyoung",
 			"desc": ""
 		},
 		{
@@ -67,14 +74,14 @@
 			"title": "Response to leave from a room",
 			"dir": "to client",
 			"id": "RESPONSE_LEAVE_CHATROOM",
-			"msg": "BOGUEN.2020.11.09.10.33.55 mike",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike",
 			"desc": ""
 		},
 		{
 			"title": "Response to send a chat",
 			"dir": "to client",
 			"id": "UPDATE_CHAT",
-			"msg": "BOGUEN.2020.11.09.10.33.55 mike 2020.11.09.12.00.00 Hello!! Nice to meet you",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike<GS>2020.11.09.12.00.00<GS>Hello!! Nice to meet you",
 			"desc": ""
 		}
 	]

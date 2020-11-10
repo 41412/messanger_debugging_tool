@@ -199,19 +199,10 @@ void MainWindow::updateRawData()
     }
 
     if (!msg.isEmpty()) {
-        // items : separated by space
-        QStringList items = msg.split(' ');
-        for (auto it: items) {
-            d += ' ';
-
-            if ((it.length() > 2) && (it[0] == '`' && it[1] == '#')) {
-                QString rem = it.right(it.length() - 2);
-                d += IntToArray(rem.toInt());
-            }
-            else {
-                d += it.toUtf8();
-            }
-        }
+        // items : separated by space 
+        QString body = msg.replace("<RS>", QString(0x1E)).replace("<US>", QString(0x1F)).replace("<GS>", QString(0x1D));
+        d += 0x1D; // GS
+        d += body.toUtf8();
     }
 
     if (d.size() != 0) {
@@ -311,6 +302,7 @@ bool MainWindow::loadPresets(const QString& filepath)
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
+    Q_UNUSED(column)
     // qDebug() << row << ", " << column;
     ui->lineEdit_Pmid->setText(ui->tableWidget->item(row, 1)->text());
     ui->textEdit_Items->setText(ui->tableWidget->item(row, 2)->text());

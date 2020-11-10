@@ -4,14 +4,14 @@
 			"title": "Request Login",
 			"dir": "to server",
 			"id": "REQUEST_LOGIN",
-			"msg": "mike 123456",
+			"msg": "mike<GS>123456",
 			"desc": ""
 		},
 		{
 			"title": "Request submit",
 			"dir": "to server",
 			"id": "REQUEST_SUBMIT",
-			"msg": "mike 123456",
+			"msg": "mike<GS>123456",
 			"desc": ""
 		},
 		{
@@ -39,28 +39,28 @@
 			"title": "Request to create a chat room",
 			"dir": "to server",
 			"id": "REQUEST_CREATE_CHATROOM",
-			"msg": "3 mike boguen wooyoung",
+			"msg": "3<GS>mike<GS>boguen<GS>wooyoung",
 			"desc": ""
 		},
 		{
 			"title": "Request to invite user(s) into a room",
 			"dir": "to server",
 			"id": "REQUEST_INVITE_USER",
-			"msg": "BOGUEN.2020.11.09.10.33.55 3 mike boguen wooyoung",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>3<GS>mike<GS>boguen<GS>wooyoung",
 			"desc": ""
 		},
 		{
 			"title": "Request to leave from a room",
 			"dir": "to server",
 			"id": "REQUEST_LEAVE_CHATROOM",
-			"msg": "BOGUEN.2020.11.09.10.33.55 mike",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike",
 			"desc": ""
 		},
 		{
 			"title": "Request to send chat",
 			"dir": "to server",
 			"id": "REQUEST_SEND_CHAT",
-			"msg": "BOGUEN.2020.11.09.10.33.55 mike Hello! Nice to meet you",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike<GS>Hello! Nice to meet you",
 			"desc": ""
 		}
 	]	
