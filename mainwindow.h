@@ -47,6 +47,10 @@ private slots:
 
     void on_pushButton_Reload_clicked();
 
+    void on_pushButton_ShowClient1_clicked();
+
+    void on_pushButton_ShowClient2_clicked();
+
 private:
     Ui::MainWindow *ui;
 

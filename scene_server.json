@@ -29,7 +29,7 @@
 			"desc": ""
 		},			
 		{
-			"title": "User data start",
+			"title": "Start user data sending",
 			"dir": "to client",
 			"id": "USERDATA_SEND_START",
 			"msg": "",
@@ -43,13 +43,6 @@
 			"desc": ""
 		},
 		{
-			"title": "Send friend list",
-			"dir": "to client",
-			"id": "USERDATA_SEND_END",
-			"msg": "",
-			"desc": ""
-		},
-		{
 			"title": "Send room list",
 			"dir": "to client",
 			"id": "SEND_CHATROOMLIST",
@@ -57,31 +50,38 @@
 			"desc": ""
 		},
 		{
-			"title": "Response to create chat room",
+			"title": "End userdata sending",
+			"dir": "to client",
+			"id": "USERDATA_SEND_END",
+			"msg": "",
+			"desc": ""
+		},
+		{
+			"title": "Create chat room",
 			"dir": "to client",
 			"id": "RESPONSE_CREATE_CHATROOM",
 			"msg": "BOGUEN.2020.11.09.10.33.55",
 			"desc": ""
 		},
 		{
-			"title": "Response to invite user to a room",
+			"title": "Invite user to a room",
 			"dir": "to client",
 			"id": "RESPONSE_INVITE_USER",
 			"msg": "BOGUEN.2020.11.09.10.33.55",
 			"desc": ""
 		},
 		{
-			"title": "Response to leave from a room",
+			"title": "Leave from a room",
 			"dir": "to client",
 			"id": "RESPONSE_LEAVE_CHATROOM",
 			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike",
 			"desc": ""
 		},
 		{
-			"title": "Response to send a chat",
+			"title": "Send a chat",
 			"dir": "to client",
 			"id": "UPDATE_CHAT",
-			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike<GS>2020.11.09.12.00.00<GS>Hello!! Nice to meet you",
+			"msg": "BOGUEN.2020.11.09.10.33.55<GS>mike<GS>2020.11.09.12.00.00<GS>0<GS>Hello!! Nice to meet you",
 			"desc": ""
 		}
 	]

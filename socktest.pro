@@ -9,20 +9,25 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chatclientdialog.cpp \
     hmclient.cpp \
     hmserver.cpp \
     main.cpp \
     mainwindow.cpp \
-    packetparser.cpp
+    packetparser.cpp \
+    packetreceiver.cpp
 
 HEADERS += \
     HmCommon.h \
+    chatclientdialog.h \
     hmclient.h \
     hmserver.h \
     mainwindow.h \
-    packetparser.h
+    packetparser.h \
+    packetreceiver.h
 
 FORMS += \
+    chatclientdialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

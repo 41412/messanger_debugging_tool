@@ -12,6 +12,8 @@
 #include <QMessageBox>
 #include <QTimer>
 
+#include "chatclientdialog.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -384,4 +386,26 @@ void MainWindow::loadRecentFilepath()
         _recentFile = QString::fromUtf8(cf.readAll());
         cf.close();
     }
+}
+
+void MainWindow::on_pushButton_ShowClient1_clicked()
+{
+    static ChatClientDialog* dlg = nullptr;
+    if (dlg == nullptr) {
+        dlg = new ChatClientDialog();
+        dlg->setModal(false);
+        dlg->setWindowTitle("Client1");
+    }
+    dlg->show();
+}
+
+void MainWindow::on_pushButton_ShowClient2_clicked()
+{
+    static ChatClientDialog* dlg = nullptr;
+    if (dlg == nullptr) {
+        dlg = new ChatClientDialog();
+        dlg->setModal(false);
+        dlg->setWindowTitle("Client2");
+    }
+    dlg->show();
 }
