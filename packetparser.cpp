@@ -8,7 +8,7 @@
 #define LEVEL2_DELI (0x1E)
 #define LEVEL3_DELI (0x1F)
 
-static const unsigned char signature[8]={0xff,0xee,'M','R','2','0','2','0'};
+static const char signature[8]={'\xFF','\xEE','M','R','2','0','2','0'};
 
 static int byteArrayToInt(const QByteArray& arr)
 {
@@ -47,12 +47,9 @@ QByteArray extractProtocol(const QByteArray& message)
 static inline QByteArray fillHeader(const QByteArray& ar)
 {
     QByteArray b;
-    b.append(0xff);
-    b.append(0xee);
-    b.append("MR2020");
+    b.append(signature, 8);
     b.append(intToArray(ar.length()));
     b += ar;
-
     return b;
 }
 
