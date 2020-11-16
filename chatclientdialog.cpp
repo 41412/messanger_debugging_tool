@@ -102,15 +102,14 @@ void ChatClientDialog::onReadyRead()
             }
             else if (m["cmd"] == "update.chat") {
                 QString item;
-                item += "[";
+                item += m["msg"];
+                item += QString::asprintf(" (%s said)", m["name"].constData());
+                item += " [";
                 item += m["roomid"];
                 item += "]";
                 item += m["time"];
                 item += " ";
                 item += m["index"];
-                item += " ";
-                item += m["msg"];
-                item += QString::asprintf("(%s)", m["name"].constData());
 
                 ui->listWidget_Received->addItem(item);
             }
