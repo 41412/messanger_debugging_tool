@@ -55,6 +55,7 @@ void MainWindow::onNewConnection()
     //}
 
     qDebug("A new connection!!!");
+    ui->textEdit_RxText->setText("new connection!!");
     qDebug() << "total " << _sockets.count() << "connected";
 }
 
@@ -65,6 +66,7 @@ void MainWindow::onSocketStateChanged(QAbstractSocket::SocketState socketState)
         QTcpSocket* sender = static_cast<QTcpSocket*>(QObject::sender());
         _sockets.removeOne(sender);
         qDebug("A connection has been released");
+        ui->textEdit_RxText->setText("a connection has released");
         qDebug() << "total " << _sockets.count() << "connected";
     }
 }

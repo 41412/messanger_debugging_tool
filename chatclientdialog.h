@@ -33,6 +33,8 @@ private slots:
 
     void on_listWidget_Rooms_itemClicked(QListWidgetItem *item);
 
+    void on_pushButton_ReadyToRx_clicked();
+
 private:
     Ui::ChatClientDialog *ui;
     PacketParser* _parser;

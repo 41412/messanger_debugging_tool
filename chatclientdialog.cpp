@@ -110,6 +110,7 @@ void ChatClientDialog::onReadyRead()
                 item += m["index"];
                 item += " ";
                 item += m["msg"];
+                item += QString::asprintf("(%s)", m["name"].constData());
 
                 ui->listWidget_Received->addItem(item);
             }
@@ -148,4 +149,11 @@ void ChatClientDialog::on_pushButton_Send_clicked()
 void ChatClientDialog::on_listWidget_Rooms_itemClicked(QListWidgetItem *item)
 {
     ui->textEdit_RoomSelected->setText(item->text());
+}
+
+void ChatClientDialog::on_pushButton_ReadyToRx_clicked()
+{
+    QMap<QString, QByteArray> vars;
+    vars["target"] = "client";
+    _socket.write(PacketParser::makePacket("notify.ready.receive", vars));
 }

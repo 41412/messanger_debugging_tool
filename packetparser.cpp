@@ -22,7 +22,7 @@ static int byteArrayToInt(const QByteArray& arr)
 static QByteArray intToArray(int i)
 {
     QByteArray ba;
-    QDataStream ds(&ba,QIODevice::ReadOnly);
+    QDataStream ds(&ba,QIODevice::ReadWrite);
     ds << i;
     return ba;
 }
@@ -163,6 +163,9 @@ static QMap<QString,QByteArray> parseClient(const QByteArray& ba)
                 m["time"] = list.at(3);
                 m["index"] = list.at(4);
                 m["msg"] = list.at(5);
+            }
+            else {
+                qDebug("invalid chat packet");
             }
         }
     }

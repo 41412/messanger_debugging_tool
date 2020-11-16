@@ -216,6 +216,19 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_ReadyToRx">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>220</y>
+     <width>82</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ready to receive</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

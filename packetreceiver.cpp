@@ -2,6 +2,9 @@
 #include "packetparser.h"
 
 PacketReceiver::PacketReceiver()
+    : packets()
+    , buffer()
+    , remainSize(0)
 {
 
 }
@@ -18,6 +21,7 @@ int PacketReceiver::process(const QByteArray& ba)
             if (buffer.size() >= realSize) {
                 packets += buffer.left(realSize);
                 buffer.remove(0, realSize);
+                remainSize = 0;
             }
             else {
                 packets += buffer;
@@ -41,6 +45,7 @@ int PacketReceiver::process(const QByteArray& ba)
             else {
                 qDebug("has wrong data");
                 buffer.clear();
+                remainSize = 0;
             }
         }
     }
