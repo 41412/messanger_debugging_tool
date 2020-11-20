@@ -73,29 +73,37 @@ void MainWindow::onSocketStateChanged(QAbstractSocket::SocketState socketState)
 
 void MainWindow::onReadyRead()
 {
+    QString strRaw, strHex;
+
     ui->textEdit_RxHex->setText("");
     ui->textEdit_RxText->setText("");
 
     for (int i = 0; i < _sockets.count(); i++) {
         QTcpSocket* socket = _sockets[i];
         QByteArray data = socket->readAll();
+        QString strTempHex, strTempRaw;
 
-        QString str, str2;
-        QString tm;
-
-        for (int i = 0; i < data.count(); i++) {
-            if (i%8 == 0 && i != 0) {
-                str += "\r\n      ";
-                str2 += "\r\n      ";
+        for (int j = 0; j < data.count(); j++) {
+            if (j%8 == 0 && j != 0) {
+                strTempHex += "\r\n      ";
+                strTempRaw += "\r\n      ";
             }
-            str += QString::asprintf("%02X ", static_cast<unsigned char>(data[i]));
-            str2 += QString::asprintf("%c ", static_cast<unsigned char>(data[i]));
+            strTempHex += QString::asprintf("%02X ", static_cast<unsigned char>(data[j]));
+            strTempRaw += QString::asprintf("%c ", static_cast<unsigned char>(data[j]));
         }
-        str.prepend(QString::asprintf("[%04d]",i));
-        str2.prepend(QString::asprintf("[%04d]",i));
-        ui->textEdit_RxHex->setText(str);
-        ui->textEdit_RxText->setText(str2);
+
+        if (!strTempHex.isEmpty()) {
+            strTempHex.prepend(QString::asprintf("[%04d]",i));
+            strRaw += strTempHex;
+        }
+        if (!strTempRaw.isEmpty()) {
+            strTempRaw.prepend(QString::asprintf("[%04d]",i));
+            strHex += strTempRaw;
+        }
     }
+
+    ui->textEdit_RxHex->setText(strHex);
+    ui->textEdit_RxText->setText(strRaw);
 }
 
 void MainWindow::onClient1Recieved(const QByteArray& data)
